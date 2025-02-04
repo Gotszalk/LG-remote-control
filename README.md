@@ -24,7 +24,7 @@ Info: Development environment does not require gunicorn!
 
 ## Production environment
 For production purposes it is required to install WSGI e.g. gunincorn.
-<code>pip install funicorn</code>
+<code>pip install gunicorn</code>
 
 App can be started by:
 <code>./run </code>

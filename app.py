@@ -18,10 +18,12 @@ def click_button():
     remote_bus.put(signal) # send signal to the bus!
     return jsonify({"response": f"Received {signal}!"})
 
-if __name__ == '__main__':
+def main():
     remote = Process(target=initiate, args=(remote_bus,)) # create subprocess to deal with signals
     # remote.daemon = True
     remote.start()
     # remote.join()
-
     app.run(debug=True, use_reloader=False, host='127.0.0.1', port=5010)
+
+if __name__ == '__main__':
+    main()
