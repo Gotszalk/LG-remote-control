@@ -1,0 +1,31 @@
+# LG Remote Control app
+This is remote control flask app (Python+HTML) for LG TV on WebOS. 
+
+## Requirements
+Requirements are as follows:
+  * aiowebostv
+  * flask
+  * gunicorn
+  * wakeonlan
+
+## Initial configuration
+1. Get IP address and MAC address of your LG TV e.g. your home router may clearly show the info or indirectly check network settings of your TV.
+2. Edit ./tools/get_key.py and add correct IP address.
+3. Run the script to get client key <code>python check_key.py</code>
+4. Add client key, TV IP address and TV MAC address to ./lib/tv_data.json
+
+App is ready to control your TV.
+
+## Development environment
+App can be started by executing:
+<code>python app.py</code>
+
+Info: Development environment does not require gunicorn!
+
+## Production environment
+For production purposes it is required to install WSGI e.g. gunincorn.
+<code>pip install funicorn</code>
+
+App can be started by:
+<code>./run </code>
+
