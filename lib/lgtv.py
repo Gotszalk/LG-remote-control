@@ -1,10 +1,20 @@
+import aiohttp
 import asyncio
 import json
-import logging
+from contextlib import suppress
+from lib.base_logger import logger
 from aiowebostv import WebOsClient
+from aiowebostv.exceptions import WebOsTvCommandError
 from wakeonlan import send_magic_packet
 
-logger = logging.getLogger(__name__)
+WEBOSTV_EXCEPTIONS = (
+    ConnectionResetError,
+    WebOsTvCommandError,
+    aiohttp.ClientConnectorError,
+    aiohttp.ServerDisconnectedError,
+    asyncio.CancelledError,
+    asyncio.TimeoutError,
+)
 
 class LgTV:
     def __init__(self) -> None:
@@ -24,10 +34,13 @@ class LgTV:
     async def initiate(self) -> None:
         logger.info("Power on the TV and connecting.")
         if not self.client.is_on:
+            logger.info("Client is not on. Switching on")
             await self._power_on()
         # in future check if TV is on and if not then wake_up!
         if not self.client.is_connected():
-            await self.client.connect()
+            logger.info("Client is not connected. Reconnecting")
+            with suppress("WEBOSTV_EXCEPTIONS"):
+                await self.client.connect()
 
     def is_on() -> bool:
         is_on = self.client.is_on

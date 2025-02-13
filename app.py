@@ -23,7 +23,7 @@ def main():
     # remote.daemon = True
     remote.start()
     # remote.join()
-    app.run(debug=True, use_reloader=False, host='127.0.0.1', port=5010)
+    app.run(debug=True, use_reloader=False)
 
 if __name__ == '__main__':
     main()

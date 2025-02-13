@@ -1,6 +1,7 @@
 import asyncio
 from multiprocessing import Queue
 from lib.lgtv import LgTV
+# from lib.base_logger import logger
 
 def initiate(queue: Queue):
     asyncio.run(proceed(queue)) # proceed with buttons comm in async loop
