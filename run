@@ -1,8 +1,3 @@
 #!/bin/bash
 
-# start microservice first!
-./microservice/run_ms
-
-sleep 3
-
 python -m gunicorn --preload --timeout 120 --bind=127.0.0.1:8001 --workers=3 --worker-class gevent --log-level DEBUG app:app
