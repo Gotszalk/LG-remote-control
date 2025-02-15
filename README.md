@@ -38,5 +38,9 @@ I considered flask to flask communication but it would require separate producti
 
 ## Execution
 Switching to signal sender in microservice requires sequential execution as follows:
-1. Run sender in microservice <code>./microservice/run_ms</code>
+1. Run sender in microservice 
+<code>
+cd ./microservice/
+./run_ms
+</code>
 2. Run gunicorn <code>./run</code>
