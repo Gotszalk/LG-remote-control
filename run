@@ -1,3 +1,3 @@
 #!/bin/bash
 
-python -m gunicorn --preload --timeout 120 --bind=127.0.0.1:8001 --workers=3 --worker-class gevent --log-level DEBUG app:app
+python -m gunicorn --preload --timeout 120 --bind=0..0.0.0:8001 --workers=3 --worker-class gevent --log-level DEBUG app:app
