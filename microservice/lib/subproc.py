@@ -1,12 +1,14 @@
 import asyncio
 from multiprocessing import Queue
 from lib.lgtv import LgTV
-# from lib.base_logger import logger
+from lib.base_logger import logger
 
 def initiate(queue: Queue):
+    logger.info("Starting process to send signals")
     asyncio.run(proceed(queue)) # proceed with buttons comm in async loop
 
 async def proceed(queue):
+    logger.info("Process started with message queue")
     tv = LgTV()
     while True:
         msg = queue.get() # reads messages from remote
