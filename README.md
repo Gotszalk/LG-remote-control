@@ -35,3 +35,8 @@ App can be started by:
 Due to issues with gunicorn vs multiprocessing, the signal sender functionality required to be rewritten as microservice. As simple as possible solution was FastAPI. 
 
 I considered flask to flask communication but it would require separate production instance of flask which would be additional complication.
+
+## Execution
+Switching to signal sender in microservice requires sequential execution as follows:
+1. Run sender in microservice <code>./microservice/run_ms</code>
+2. Run gunicorn <code>./run</code>
