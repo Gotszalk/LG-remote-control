@@ -7,6 +7,8 @@ Requirements are as follows:
   * flask
   * gunicorn
   * wakeonlan
+  * uvicorn
+  * fastapi
 
 ## Initial configuration
 1. Get IP address and MAC address of your LG TV e.g. your home router may clearly show the info or indirectly check network settings of your TV.
@@ -29,3 +31,7 @@ For production purposes it is required to install WSGI e.g. gunincorn.
 App can be started by:
 <code>./run </code>
 
+## FastAPI Microservice
+Due to issues with gunicorn vs multiprocessing, the signal sender functionality required to be rewritten as microservice. As simple as possible solution was FastAPI. 
+
+I considered flask to flask communication but it would require separate production instance of flask which would be additional complication.
