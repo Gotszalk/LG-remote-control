@@ -1,5 +1,5 @@
 {
-	"tv_mac_address": "44:cb:8b:f8:d7:e0",
-	"tv_ip_address": "172.27.1.29",
-	"client_key": "5600292efcd5e09fad9a094c12d911a1"
+	"tv_mac_address": "xx:xx:xx:xx:xx:xx",
+	"tv_ip_address": "127.0.0.1",
+	"client_key": "0123456789abcde0123456789abcde"
 }
