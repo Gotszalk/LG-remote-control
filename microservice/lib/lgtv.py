@@ -16,7 +16,15 @@ WEBOSTV_EXCEPTIONS = (
     asyncio.TimeoutError,
 )
 
-class LgTV:
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args,**kwargs)
+        return cls._instances[cls]
+
+class LgTV(metaclass=Singleton):
     def __init__(self) -> None:
         with open("./lib/tv_data.json", "r") as file:
             tv_data = json.load(file)
@@ -43,11 +51,10 @@ class LgTV:
                 await self.client.connect()
 
     def is_on() -> bool:
-        is_on = self.client.is_on
-        is_connected = self.client.is_connected()
-        logger.info(f"Power status: {is_on}")
-        logger.info(f"Connection: {is_connected}")
-        return is_on and is_connected()
+        return self.client.is_on
+
+    def is_connected() -> bool:
+        return self.client.is_connected()
 
     async def close(self) -> None:
         logger.info("Power off the TV and disconnecting.")
@@ -58,12 +65,12 @@ class LgTV:
         """Sends Wake-on-LAN packet to power on LG TV."""
         logger.info("Sending Wake-on-LAN packet...")
         send_magic_packet(self.tv_mac_address)
-        await asyncio.sleep(5)  # Wait for TV to boot up before sending further commands
+        await asyncio.sleep(2)  # Wait for TV to boot up before sending further commands
     
     async def send_signal(self, signal: str) -> None:
         logger.info(f"Sending {signal} button pressed.")
         await self.client.button(signal)
-        await asyncio.sleep(2)
+        # await asyncio.sleep(2)
     
 '''
 async def main():
