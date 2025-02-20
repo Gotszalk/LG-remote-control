@@ -9,6 +9,7 @@ Requirements are as follows:
   * wakeonlan
   * uvicorn
   * fastapi
+
 Info: Development environment does not require gunicorn!
 
 ## Initial configuration
