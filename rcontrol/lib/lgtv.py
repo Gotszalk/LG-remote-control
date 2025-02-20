@@ -71,23 +71,3 @@ class LgTV(metaclass=Singleton):
         logger.info(f"Sending {signal} button pressed.")
         await self.client.button(signal)
         # await asyncio.sleep(2)
-    
-'''
-async def main():
-    my_tv = LgTV()
-    await my_tv.initiate()
-    await my_tv.send_signal("MENU")
-    await my_tv.send_signal("DOWN")
-    await my_tv.send_signal("DOWN")
-    await my_tv.send_signal("DOWN")
-    await my_tv.send_signal("HOME")
-    await my_tv.send_signal("DOWN")
-    await my_tv.send_signal("DOWN")
-    await my_tv.send_signal("RIGHT")
-    await my_tv.send_signal("RIGHT")
-    await asyncio.sleep(20)
-    await my_tv.close()
-
-if __name__ == "__main__":
-    asyncio.run(main())
-'''
