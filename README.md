@@ -45,8 +45,8 @@ cd ./microservice/
 </code>
 2. Run gunicorn <code>./run</code>
 
-## Docerization
-There was a plan to docerize both services but managing a TV key became a problem since a container is like separate machine. Dockefiles are available and working:
+## Dockerization
+There was a plan to docekrize both services but managing a TV key became a problem since a container is like separate machine. Dockerfiles are available and working:
 <code>podman build --tag rcontrol .</code>
 <code>podman build --tag rc_webapp .</code>
 Running:
