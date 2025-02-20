@@ -13,7 +13,7 @@ Requirements are as follows:
 Info: Development environment does not require gunicorn!
 
 ## Initial configuration
-1. Get IP address and MAC address of your LG TV e.g. your home router may clearly show the info or indirectly check network settings of your TV.
+1. Get IP address and MAC address of your LG TV e.g. your home router may clearly show the info or directly check network settings on your TV.
 2. Edit ./rcontrol/tools/get_key.py and add correct IP address.
 3. Run the script to get client key <code>python check_key.py</code>
 4. Add client key, TV IP address and TV MAC address to ./lib/tv_data.json
