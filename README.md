@@ -47,9 +47,15 @@ cd ./microservice/
 
 ## Dockerization
 There was a plan to docekrize both services but managing a TV key became a problem since a container is like separate machine. Dockerfiles are available and working:
+
 <code>podman build --tag rcontrol .</code>
+
 <code>podman build --tag rc_webapp .</code>
+
 Running:
+
 <code>podman run -it -p 8000:8000 rcontrol</code>
+
 <code>podman run -it -p 8001:8001 rc_webapp</code>
+
 Again, rcontrol requires tv key for specific environment which has to be confirmed on the TV. In efect, running as a docker is problematic. However, code has been cleaned and folder structure reflects logic of 2 separate services. Additionaly gunicorn does not need gevent since async calls are only in FastAPI microservice.
