@@ -26,8 +26,8 @@ I considered flask to flask communication but it would require separate producti
 
 ## Execution
 App can be started by executing:
-<code>./rcontrol/run_ms</code> - execution of FastAPI microservice to send signals to TV
-<code>./webapp/run</code> - execution of flask app with remote control GUI
+1. <code>./rcontrol/run_ms</code> - execution of FastAPI microservice to send signals to TV
+2. <code>./webapp/run</code> - execution of flask app with remote control GUI
 
 ## Dockerization
 There was a plan to dockerize both services but managing a client key became a problem since a container is like another machine and requires separate key. Dockerfiles are available and working:
