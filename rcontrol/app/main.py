@@ -12,6 +12,9 @@ async def read_signal(signal: str):
     tv = LgTV()
     if signal != '':
         await tv.initiate()
-        await tv.send_signal(signal)
-        message = f"Received {signal}"
-        return message
+        if signal in ["YouTube", "Netflix"]:
+            await tv.launch(signal)
+        else:
+            await tv.send_signal(signal)
+            # message = f"Received {signal}"
+            # return message

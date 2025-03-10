@@ -3,7 +3,7 @@
     
     <!-- YouTube logo -->
     <rect x="15" y="18" width="30" height="20" rx="5" ry="5" fill="red"/>
-    <polygon points="27,23 27,37 38,30" fill="white"/>
+    <polygon points="25,21 25,35 36,28" fill="white"/>
     
     <!-- Text below -->
     <text x="30" y="50" font-family="Arial" font-size="7" fill="white" text-anchor="middle">YouTube</text>

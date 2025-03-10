@@ -39,12 +39,21 @@ class LgTV(metaclass=Singleton):
         else:
             logger.info("Client is not registered")
 
+    async def _get_apps(self):
+        # get list of apps
+        try:
+            apps = await self.client.get_apps()
+        except:
+            raise ValueError("Wasn't able to get the list of apps installed on TV!")
+
+        logger.info(f"Apps have been scanned: {apps}.")
+        return apps
+
     async def initiate(self) -> None:
         logger.info("Power on the TV and connecting.")
         if not self.client.is_on:
             logger.info("Client is not on. Switching on")
             await self._power_on()
-        # in future check if TV is on and if not then wake_up!
         if not self.client.is_connected():
             logger.info("Client is not connected. Reconnecting")
             with suppress("WEBOSTV_EXCEPTIONS"):
@@ -71,3 +80,10 @@ class LgTV(metaclass=Singleton):
         logger.info(f"Sending {signal} button pressed.")
         await self.client.button(signal)
         # await asyncio.sleep(2)
+
+    async def launch(self, name):
+        apps = await self._get_apps()
+        launching_app = next((app for app in apps if app["title"] == name), None)
+        if launching_app == None:
+            raise ValueError(f"No such app like {name}")
+        await self.client.launch_app(launching_app["id"])
