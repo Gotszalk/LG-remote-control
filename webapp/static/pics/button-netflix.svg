@@ -1,0 +1,11 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="60" height="60" rx="15" ry="15" fill="#777" stroke="#555" stroke-width="3"/>
+    
+    <!-- Netflix logo -->
+    <rect x="15" y="10" width="10" height="40" fill="#ae1b21"/>
+    <polygon points="15,10 25,10 45,50 35,50" fill="#ec1f24"/>
+    <rect x="35" y="10" width="10" height="40" fill="#ae1b21"/>
+    
+    <!-- No text below
+    <text x="30" y="50" font-family="Arial" font-size="7" fill="white" text-anchor="middle">YouTube</text>-->
+</svg>
